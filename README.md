@@ -11,6 +11,9 @@ You can use it directly as a sh or for quick access you can copy into
 
 If you don't have it copied to /usr/local/bin you will have to use it as ./rs2c inside the folder where it is hosted.
 If you have it copied to /usr/local/bin you can use it from any folder with rs2c command.
+You can generate a reverse shell for the following languages: 
+java, bash, perl, python, php, ruby and for netcat
+
 ```bash
 $ rs2c python 10.10.10.139 4444
 >[*] Reverse shell copied to clipboard 
